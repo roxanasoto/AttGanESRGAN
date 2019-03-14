@@ -1,0 +1,34 @@
+CONFIG_NAME: 'Eval1'
+
+DATASET_NAME: 'birds'
+DATA_DIR: '../data/birds'
+SAVE_DIR: '../results'
+GPU_ID: -1
+CUDA: False
+WORKERS: 1
+
+
+B_VALIDATION: False  # True  # False
+TREE:
+    BRANCH_NUM: 3
+
+
+TRAIN:
+    FLAG: False
+    NET_G: '../models/birds/attn2o_netG_epoch_600.pth'  # '../models/bird_AttnGAN2.pth'
+    NET_D: ['../models/birds/netD0_epoch_600.pth','../models/birds/netD1_epoch_600.pth','../models/birds/netD2_epoch_600.pth']
+    B_NET_D: True
+    BATCH_SIZE: 1
+    NET_E_TEXT: '../DAMSMencoders/birds/text_encoder200.pth'
+
+
+GAN:
+    DF_DIM: 64
+    GF_DIM: 32
+    Z_DIM: 100
+    R_NUM: 2
+
+TEXT:
+    EMBEDDING_DIM: 256
+    CAPTIONS_PER_IMAGE: 10
+    WORDS_NUM: 25
